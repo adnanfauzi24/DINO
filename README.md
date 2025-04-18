@@ -14,7 +14,7 @@
       display:flex; align-items:center; flex-wrap:wrap; position:sticky; top:0; z-index:1000;
       box-shadow:0 2px 10px rgba(0,0,0,0.2);
     }
-    .logo { width:120px; margin-right:1em; }
+    .logo { width:120px; margin-right:1em; } 
     header h2 { flex:1; font-size:1.8em; }
     nav { display:flex; gap:1em; flex-wrap:wrap; }
     nav button {
