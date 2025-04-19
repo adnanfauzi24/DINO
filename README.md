@@ -2,72 +2,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DINONESIA HARVEST CITYyyyyyy</title>
+  <title>DINONESIA HARVEST CITY</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
-    body { background:#f0f0f0; color:#333; transition:background 0.3s,color 0.3s; scroll-behavior:smooth; }
+    body {
+      background: linear-gradient(to bottom, #b2ebf2, #ffffff, #fff8e1);
+      color:#333; transition:background 0.3s,color 0.3s; scroll-behavior:smooth;
+    }
+    .color-switcher {
+      display: flex; gap: 0.5em; margin: 1em;
+    }
+    .color-btn {
+      border: none; padding: 0.5em 1em; border-radius: 20px; cursor: pointer;
+      font-weight: bold; transition: background 0.3s;
+    }
+    .color1 { background: #b2ebf2; }
+    .color2 { background: #ffe082; }
+    .color3 { background: #d1c4e9; }
+    .color4 { background: #c8e6c9; }
+    .color5 { background: #ffccbc; }
+
     header {
-      background:linear-gradient(90deg, #0047ab, #0077ff); color:#fff;
+      background:linear-gradient(90deg, #0047ab, #00bcd4); color:#fff;
       padding:1em 2em; display:flex; align-items:center; flex-wrap:wrap;
-      position:sticky; top:0; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.2);
+      position:sticky; top:0; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.3);
       width:100%; max-width:1200px; margin:0 auto;
     }
-    .logo { width:120px; margin-right:1em; }
-    header h2 { flex:1; font-size:1.8em; }
-    nav { display:flex; gap:1em; flex-wrap:wrap; }
-    nav button { background:rgba(255,255,255,0.2); border:none; color:#fff;
-      padding:0.6em 1em; border-radius:25px; cursor:pointer; transition:all 0.3s;
-      display:flex; align-items:center; gap:0.5em;
+    .logo {
+      width: 200px;
+      margin: 0 auto 0.5em;
+      display: block;
     }
-    nav button:hover, nav button.active { background:#ff5722; transform:scale(1.05); }
-    nav button i { font-size:1.2em; }
-    .dark-mode { background:#1e1e1e; color:#ddd; }
-    .dark-mode header { background:#002f6c; }
-    .dark-mode nav button { color:#ddd; }
+    header h2 {
+      font-size: 2em;
+      color: #ffe082;
+      text-shadow: 1px 1px 2px #000;
+      font-family: 'Fredoka One', cursive;
+      text-align: center;
+    }
+    .a4-slide {
+      width: 21cm;
+      height: 29.7cm;
+      margin: 1cm auto;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      padding: 1cm;
+      box-sizing: border-box;
+      page-break-after: always;
+    }
+    nav { display:flex; gap:1em; flex-wrap:wrap; }
+    nav button {
+      background:linear-gradient(to right, #ff9800, #ff5722);
+      border:none; color:#fff;
+      padding:0.6em 1em; border-radius:25px; cursor:pointer; transition:all 0.3s;
+      display:flex; align-items:center; gap:0.5em; font-weight:bold;
+    }
+    nav button:hover, nav button.active {
+      background:#ff3d00; transform:scale(1.1);
+    }
+    nav button i { font-size:1.2em; animation:bounce 1.5s infinite; }
+    .dark-mode {
+      background: linear-gradient(to bottom, #1e1e1e, #121212);
+      color:#ddd;
+    }
+    .dark-mode header { background:#263238; }
+    .dark-mode nav button { color:#fff; background:#455a64; }
     .dark-mode .card { background:#2c2c2c; color:#ddd; }
-    .dark-mode footer { background:#002f6c; }
-    .dark-toggle { background:#ff5722; border:none; color:#fff;
+    .dark-mode footer { background:#263238; }
+    .dark-toggle {
+      background:linear-gradient(to right, #ff4081, #e91e63);
+      border:none; color:#fff;
       padding:0.5em 1em; border-radius:25px; cursor:pointer; transition:all 0.3s;
     }
-    .dark-toggle:hover { background:#e64a19; }
+    .dark-toggle:hover { background:#d81b60; }
     .container { padding:2em; max-width:1200px; margin:0 auto; }
     .slider { position:relative; overflow:hidden; border-radius:10px; margin-bottom:2em; }
     .slides { display:flex; transition:transform 0.6s ease; }
-    .slides img { width:100%; height:auto; flex-shrink:0; object-fit:contain; }
-    .slider .prev, .slider .next { position:absolute; top:50%; transform:translateY(-50%);
+    .slides img { width:100%; height:auto; flex-shrink:0; object-fit:cover; border-radius:10px; }
+    .slider .prev, .slider .next {
+      position:absolute; top:50%; transform:translateY(-50%);
       background:rgba(0,0,0,0.5); color:#fff; border:none; padding:0.6em; cursor:pointer;
       border-radius:50%; z-index:1;
     }
     .prev { left:10px } .next { right:10px }
-    .slider .dots { position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+    .slider .dots {
+      position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
       display:flex; gap:5px;
     }
-    .slider .dot { width:12px; height:12px; background:rgba(255,255,255,0.5);
+    .slider .dot {
+      width:12px; height:12px; background:rgba(255,255,255,0.5);
       border-radius:50%; cursor:pointer;
     }
     .slider .dot.active { background:#ff5722; }
-    h3 { margin-bottom:0.5em; color:#0047ab; font-size:1.5em; }
+    h3 {
+      margin-bottom:0.5em; color:#00796b; font-size:1.6em;
+      text-shadow:1px 1px 1px #ccc;
+      font-family:'Fredoka One', cursive;
+    }
     .section p { margin-bottom:1em; line-height:1.6; font-size:1.1em; }
-    .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5em; }
-    .card { background:#fff; border-radius:12px; overflow:hidden;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:transform 0.4s, opacity 0.4s;
+    .cards {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5em;
+    }
+    .card {
+      background:linear-gradient(135deg, #ffffff, #e3f2fd);
+      border-radius:12px; overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2); transition:transform 0.4s, opacity 0.4s;
       animation:fadeInUp 0.6s ease forwards; opacity:0;
     }
     .card:hover { transform:translateY(-8px); }
     .card img { width:100%; aspect-ratio:1/1; object-fit:cover; }
     .card-content { padding:1em; }
-    .card-content h4 { margin-bottom:0.5em; color:#0047ab; font-size:1.2em; }
-    footer { text-align:center; padding:1em; background:#0047ab; color:#fff;
+    .card-content h4 {
+      margin-bottom:0.5em; color:#0288d1; font-size:1.3em;
+      font-family:'Fredoka One', cursive;
+    }
+    footer {
+      text-align:center; padding:1em;
+      background:linear-gradient(90deg, #0047ab, #0077ff); color:#fff;
       margin-top:2em; box-shadow:0 -2px 8px rgba(0,0,0,0.2);
     }
-    .scroll-top { position:fixed; bottom:20px; right:20px;
-      background:#0047ab; color:#fff; border:none;
+    .scroll-top {
+      position:fixed; bottom:20px; right:20px;
+      background:#009688; color:#fff; border:none;
       padding:0.7em 1em; border-radius:50%; font-size:1.2em; cursor:pointer;
       display:none; z-index:999; transition:background 0.3s;
     }
-    .scroll-top:hover { background:#002f6c; }
-    @keyframes fadeInUp { from { transform:translateY(20px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+    .scroll-top:hover { background:#00695c; }
+    @keyframes fadeInUp {
+      from { transform:translateY(20px); opacity:0; }
+      to { transform:translateY(0); opacity:1; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform:translateY(0); }
+      50% { transform:translateY(-5px); }
+    }
     .fa-horse { color:#ff5722;} .fa-fan{color:#4caf50;} .fa-flag-checkered{color:#2196f3;}
     .fa-kiwi-bird{color:#ff9800;} .fa-rocket{color:#9c27b0;} .fa-water{color:#03a9f4;}
     .fa-frog{color:#8bc34a;} .fa-bicycle{color:#ffeb3b;} .fa-train{color:#673ab7;}
@@ -75,9 +145,25 @@
     .fa-bowling-ball{color:#ff4081;} .fa-crosshairs{color:#607d8b;}
     .fa-tooth{color:#f44336;} .fa-wine-bottle{color:#795548;} .fa-trash-alt{color:#9e9e9e;}
     .fa-theater-masks{color:#3f51b5;} .fa-ring{color:#e91e63;}
-
-</style>
+  </style>
 </head>
+<body>
+  <div class="color-switcher">
+    <button class="color-btn color1" onclick="changeBg('#b2ebf2', '#ffffff', '#fff8e1')">Warna 1</button>
+    <button class="color-btn color2" onclick="changeBg('#ffe082', '#fff3e0', '#ffcc80')">Warna 2</button>
+    <button class="color-btn color3" onclick="changeBg('#d1c4e9', '#ede7f6', '#b39ddb')">Warna 3</button>
+    <button class="color-btn color4" onclick="changeBg('#c8e6c9', '#ffffff', '#a5d6a7')">Warna 4</button>
+    <button class="color-btn color5" onclick="changeBg('#ffccbc', '#fff3e0', '#ffab91')">Warna 5</button>
+  </div>
+
+  <script>
+    function changeBg(color1, color2, color3) {
+      document.body.style.background = `linear-gradient(to bottom, ${color1}, ${color2}, ${color3})`;
+    }
+  </script>
+</body>
+<!-- Konten lainnya tetap -->
+
 
 <body>
   <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_191c08e103.mp3"></audio>
@@ -119,6 +205,9 @@
     <div id="tentang" class="content section" style="display:none;">
       <h3><i class="fas fa-info-circle"></i> Tentang</h3>
       <p>
+        
+        
+        
       <section id="wahana-dinonesia" class="p-6 bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
         <div class="max-w-4xl mx-auto">
           <h2 class="text-3xl font-bold mb-4 text-center">🌋 Wahana Dinonesia: Petualangan Seru di Zaman Dinosaurus!</h2>
